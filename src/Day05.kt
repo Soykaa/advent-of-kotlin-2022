@@ -58,7 +58,7 @@ fun main() {
 
     fun part2(input: List<String>): String = processCommands(input, ::move2)
 
-    val input = readInput("Day08")
+    val input = readInput("Day05")
     println(part1(input))
     println(part2(input))
 }
