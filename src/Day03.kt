@@ -1,14 +1,14 @@
+private fun getPriority(itemType: Char): Int = if (itemType in 'a'..'z')
+    itemType - 'a' + 1
+else
+    itemType - 'A' + 27
+
+private fun findIntersection(items: String): List<Int> {
+    val (fstPart, sndPart) = items.chunked(items.length / 2)
+    return fstPart.toSet().intersect(sndPart.toSet()).map { getPriority(it) }
+}
+
 fun main() {
-    fun getPriority(itemType: Char): Int = if (itemType in 'a'..'z')
-        itemType - 'a' + 1
-    else
-        itemType - 'A' + 27
-
-    fun findIntersection(items: String): List<Int> {
-        val (fstPart, sndPart) = items.chunked(items.length / 2)
-        return fstPart.toSet().intersect(sndPart.toSet()).map { getPriority(it) }
-    }
-
     fun part1(input: List<String>): Int = input.sumOf { line ->
         findIntersection(line).sum()
     }
